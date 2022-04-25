@@ -20,6 +20,7 @@ void loop() {
   uint8_t dist=0;//distance for the car
   if(has_obs(&dist)){
     while(dist<45){
+      Serial.println("Move backward to start avoid obstacle");
       motor(40,BACK);//Move backward
       has_obs(&dist);//update distance between car and obstacle
     }
@@ -33,15 +34,22 @@ void loop() {
     turn_right(my_angle);
   }
   if(mid()){
+    Serial.println("Move forward");
     motor(my_speed,FORWARD);
   }
   if(left()){
+    Serial.println("Turn left and move");
     turn_left(my_angle);
     motor(my_speed,FORWARD);
   }
   if(right()){
+    Serial.println("Turn right and move");
     turn_right(my_angle);
     motor(my_speed,FORWARD);
+  }
+  else{
+    Serial.println("No white line detected. Stop");
+    motor(my_speed,STOP);
   }
 
 }
