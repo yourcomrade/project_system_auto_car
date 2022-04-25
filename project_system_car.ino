@@ -1,3 +1,6 @@
+/*
+ *The main file of the project. 
+ */
 #include "pin_name.h"
 #include "obs_detect.h"
 #include "line_detect.h"
