@@ -8,9 +8,9 @@
 #include<NewPing.h>//library for sonar sensor
 //Pin used for motor driver
 #define EN A0//Enable is pin A0
-#define PWM 9//PWM for the motor
-#define CWPin 10//Clock wise pin
-#define CCWPin 11//Counter clock wise pin
+#define PWM 11//PWM for the motor
+#define CWPin 12//Clock wise pin
+#define CCWPin 9//Counter clock wise pin
 
 //Pin used for 3 IR sensors
 #define left_ir 8//left ir sensor
