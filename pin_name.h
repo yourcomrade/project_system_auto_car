@@ -18,7 +18,7 @@
 #define rig_ir 4//right ir sensor
 
 //Pin used for servo motor to control direction of the car
-#define serPin 5
+#define serPin 6
 
 //Pin used for sonar sensor
 #define echoPin 2

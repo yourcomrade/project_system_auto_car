@@ -11,8 +11,8 @@
   delay(10);
     (*dist)=sonar.ping_cm();
     Serial.print("Distance: ");
-    Serial.print((*dist),DEC);
-    if((*dist)<=50){
+    Serial.println((*dist),DEC);
+    if((*dist)<=42 && *dist > 0){
       Serial.println("\tObstacle detected");
       return true;
     }

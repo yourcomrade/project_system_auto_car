@@ -5,15 +5,35 @@
  #define LINE_DETECT_H
  #include "pin_name.h"
 
-extern bool right(){
-  return !(digitalRead(rig_ir)&&!digitalRead(left_ir));
+bool data_r() { return !digitalRead(rig_ir);}
+bool data_m() { return !digitalRead(mid_ir);}
+bool data_l() { return !digitalRead(left_ir);}
+
+//exposes a getter for the right data
+extern bool get_data_r(){
+  return data_r();
 }
 
-extern bool left(){
-  return !(digitalRead(left_ir)&&!digitalRead(rig_ir));
+//exposes a get for the left data
+extern bool get_data_l(){
+  return data_l();
+}
+
+//exposes a get for the middle data
+extern bool get_data_m(){
+  return data_m();
+}
+
+//function that checks if 
+extern bool right(){
+    return data_r() && !data_l();
 }
 
 extern bool mid(){
-  return !(digitalRead(mid_ir)&&!digitalRead(rig_ir)&&!digitalRead(left_ir));
+    return data_m() && !data_l() && !data_r();
+}
+
+extern bool left() {
+    return !data_r() && data_l();
 }
 #endif
