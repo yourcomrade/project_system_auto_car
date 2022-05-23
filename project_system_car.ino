@@ -20,7 +20,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  /*turn(an_stra);
+  turn(an_stra);
   uint8_t dist=0;//distance for the car
   if(has_obs(&dist)){
     while(has_obs(&dist)){
@@ -41,57 +41,39 @@ void loop() {
     delay(500);
     Serial.println("Turn left");
     motor(60,FORWARD);
-    delay (1500);
+    delay (2000);
     
     //turn(an_stra);
     //motor(my_speed,FORWARD);
     //delay(3000);
   }
- motor(35,FORWARD);*/
- /* motor(50,BACK);
-  delay(2000);
-  motor(0,STOP);
-  delay(2000);*/
-  /*if(mid()){
-    Serial.println("Move forward");
-    turn(an_stra);
-    motor(my_speed,FORWARD);
-    prev_state = 0;
-//    delay(120);
-  }
-  if(left()){
-    Serial.println("Turn left and move");
-    turn(an_left);
-    motor(my_speed,FORWARD);
-//    delay(120);
-  }
-  if(right() || prev_state == 2){
-    Serial.println("Turn right and move");
-    turn(an_rig);
-    motor(my_speed,FORWARD);
-//    delay(120);
-//    delay(90);
-  }
-  else{
-    Serial.println("No white line detected. Stop");
-    motor(my_speed,STOP);
-  }
-  if ( prev_state == 1){
-    while(!mid()) {
-      turn(an_rig);
-      delay(5);
-    }
-  }
-  else if (prev_state == 2){
-    while (!mid()){
-      turn(an_left);
-      delay(5);
-    }
-  }
-prev_state = 0;*/
-for(int i=10;i<255;i+=20){
-  motor(i,FORWARD);
-  delay(1000);
+if(mid()){
+  Serial.println("Straight");
+  turn(an_stra);
+  motor(47,FORWARD);
+}
+else if(left()){
+  
+  int i=30;
+  do{if(i<70){i+=2;}
+  Serial.print("Left i= ");
   Serial.println(i);
+  turn(i);
+  motor(my_speed,FORWARD);
+  delay(1);
+    }while(!mid()&&left());
+}
+else if(right()){
+ 
+  int i=30;
+  do{if(i>=10){
+    i-=2;
+  }
+  Serial.print("Right i= ");
+  Serial.println(i);
+  turn(i);
+  motor(my_speed,FORWARD);
+  delay(1);
+  }while(!mid()&&right());
 }
 }
