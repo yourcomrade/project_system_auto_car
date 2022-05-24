@@ -9,8 +9,8 @@
 #define STOP 1
 #define BACK 2
 #define my_speed 60
-#define an_stra 70//angle to turn straight is 30 degree
-#define an_left 140//angle to turn left is 60 degree
+#define an_stra 70//angle to turn straight is 70 degree
+#define an_left 140//angle to turn left is 140 degree
 #define an_rig 0//angle to turn right is 0 degree
 int prev_state = 0;
 void setup() {
