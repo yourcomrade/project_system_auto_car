@@ -71,7 +71,7 @@ else if(left()){
   Serial.print("Left angle= ");
   Serial.println(angle);
   turn(angle);
-  if(cspeed<55)cspeed;
+  if(cspeed<55)cspeed++;
   motor(cspeed,FORWARD);
   delay(1);
   //avoid();
