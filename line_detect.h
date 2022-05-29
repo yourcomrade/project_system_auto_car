@@ -1,4 +1,5 @@
-/*
+/* Author: Vladislav Serafimove
+ * Student number: 509761
  * This file contains functions for detecting the line
  */
  #ifndef LINE_DETECT_H
