@@ -1,4 +1,5 @@
-/*
+/* Author: Hoang Minh Le
+ * Student number: 511907
  * This file is to define which pin is used for which sensor
  */
 #ifndef PIN_NAME_H

@@ -1,4 +1,5 @@
-/*
+/* Author: Hoang Minh Le
+ * Student number: 511907
  * This file for calculating obstacle detection
  */
 #ifndef OBS_DETECT_H

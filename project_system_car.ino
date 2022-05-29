@@ -1,5 +1,6 @@
-/*
- *The main file of the project. 
+/* Atuthor: Hoang Minh Le
+ * Student number:511907
+ * The main file of the project. 
  */
 #include "pin_name.h"
 #include "obs_detect.h"
@@ -18,15 +19,12 @@ void setup() {
   pin_mode();
   turn(an_stra);
 }
-void avoid(){//function to control avoid obstacle
-// turn(an_stra);
+void avoid(){//function to check and avoid obstacle
  uint8_t dist=0;//distance for the car
   if(has_obs(&dist)){
     turn(an_stra);
     while(has_obs(&dist)){
       Serial.println("Move backward to start avoid obstacle");
-     // motor(0,STOP);
-      //delay(500);
       motor(50,BACK);//Move backward
       
     }
@@ -41,32 +39,26 @@ void avoid(){//function to control avoid obstacle
     delay(200);
     Serial.println("Turn left");
     motor(60,FORWARD);
-    
-   // motor(30,FORWARD);
-    //motor(0,STOP);
-    //delay(10000);
-  }}void loop() {
+  }
+}
+void loop() {
   // put your main code here, to run repeatedly:
-  
- 
-    //turn(an_stra);
-    //motor(my_speed,FORWARD);
-    //delay(3000);
-  if(data_r()&&data_l()){
+  if(data_r()&&data_l()){//if both right and left ir sensors detect the line, then stop
     Serial.println("Stop");
   motor(0,STOP);
   delay(5000);
-  
 }
-else if(mid()){
+else if(mid()){//if only the middle sensor detects the line, the move forward
   Serial.println("Straight");
   turn(an_stra);
   motor(35,FORWARD);
   avoid();
 }
 else if(left()){
-  int angle=an_stra;//angle for the car, the angle will increase as the left
-  int cspeed=30;
+  int angle=an_stra;//angle for the car, the angle will increase as the left 
+  //ir sensor are continuing to detect the line
+  int cspeed=30;//the speed of the car when it turns
+  //the speed will increase as the car continue to turn left
   do{if(angle<140){angle+=5;}
   Serial.print("Left angle= ");
   Serial.println(angle);
@@ -74,12 +66,13 @@ else if(left()){
   if(cspeed<55)cspeed++;
   motor(cspeed,FORWARD);
   delay(1);
-  //avoid();
     }while(left());
 }
 else if(right()){
-  int cspeed=30;
-  int angle=an_stra;
+   int angle=an_stra;//angle for the car, the angle will increase as the right
+  //ir sensor are continuing to detect the line
+  int cspeed=30;//the speed of the car when it turns
+  //the speed will increase as the car continue to turn right
   do{if(angle>=5){
     angle-=5;
   }
@@ -89,7 +82,6 @@ else if(right()){
   if(cspeed<55)cspeed++;
   motor(cspeed,FORWARD);
   delay(1);
-  //avoid();
   }while(right());
 }
 
