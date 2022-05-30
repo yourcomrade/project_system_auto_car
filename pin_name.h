@@ -7,6 +7,7 @@
 
 #include<Servo.h>//include servo motor library
 #include<NewPing.h>//library for sonar sensor
+#include  "ramp_detect.h"
 //Pin used for motor driver
 #define EN A0//Enable is pin A0
 #define PWM 11//PWM for the motor
@@ -49,7 +50,7 @@ extern void pin_mode(){
   //Pin mode for servo motor
   myServo.attach(serPin);
   
-  
+  ramp_start();
 }
 
 #endif
